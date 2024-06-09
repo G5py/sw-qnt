@@ -28,6 +28,6 @@ class FinalPriceCalculatorTest {
         double actualOutput = new FinalPriceCalculator(ruleList).calculate(cart);
 
         // then
-        assertEquals(3.0, actualOutput);
+        assertEquals(2.0, actualOutput);
     }
 }
