@@ -1,0 +1,24 @@
+name: test
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: set up jdk
+        uses: action setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: set up gradle
+        uses: gradle/actions/setup-gradle
+
+      - name: test with gradle
+        run: ./gradlew test
